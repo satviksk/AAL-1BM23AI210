@@ -1,0 +1,61 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+	int n;
+	printf("Enter the number of element in the array:");
+	scanf("%d",&n);
+	int a[n];
+	printf("Enter the element of the array:");
+	for (int i=0;i<n;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	printf("The elements of the array before sorting is:");
+    for (int i=0;i<n;i++)
+    {
+    	printf("%d  ",a[i]);
+	}
+	
+	
+
+	for (int i=0;i<n-1;i++)
+	{
+		int min=a[i];
+		int min_index=i;
+		
+		for (int j=i+1;j<n;j++)
+		{
+			if (a[j]<min)
+			{
+				min=a[j];
+				min_index=j;
+			}
+		}
+		if (min_index!=i)
+		{
+			int temp=a[min_index];
+			a[min_index]=a[i];
+			a[i]=temp;
+		}
+	}
+	printf("\nThe elements of the array after sorting is:");
+    for (int i=0;i<n;i++)
+    {
+    	printf("%d  ",a[i]);
+	}
+	return 0;
+	
+}
+
+
+Output:
+Enter the number of element in the array:5
+Enter the element of the array:5
+4
+3
+2
+1
+The elements of the array before sorting is:5  4  3  2  1  
+The elements of the array after sorting is:1  2  3  4  5 
