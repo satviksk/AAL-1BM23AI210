@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() 
+{
+    int sortedarr[10];
+    int unsortedarr[10] = {10, 20, 40, 30, 90, 80, 60, 60, 100, 65};
+
+    sortedarr[0] = unsortedarr[0]; 
+    int count = 1;
+
+    for (int i = 1; i < 10; i++) 
+	{
+        int element = unsortedarr[i];
+        int j = count - 1;
+
+        while (j >= 0 && sortedarr[j] > element) 
+		{
+            sortedarr[j + 1] = sortedarr[j];
+            j--;
+        }
+
+        sortedarr[j + 1] = element;
+        count++;
+    }
+    printf("The array elements are:\n");
+    for (int i = 0; i < 10; i++) 
+	{
+        printf("%d ", sortedarr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+OUTPUT:
+The Unsorted array elements are:
+10 20 40 30 90 80 60 60 100 65 
+
+The Sorted array elements are:
+10 20 30 40 60 60 65 80 90 100 
